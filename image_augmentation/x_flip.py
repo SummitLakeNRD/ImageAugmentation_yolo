@@ -7,18 +7,18 @@ def flipImages(filePath, pathOut):
     for filename in os.listdir(filePath):
         if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg'):
             image_path = filePath + filename
-            image_pathout = pathOut + 'Yflip_' + filename
+            image_pathout = pathOut + 'Xflip_' + filename
             image = cv2.imread(image_path)
-            flipp = cv2.flip(image, 1)
+            flipp = cv2.flip(image, 0)
             cv2.imwrite(image_pathout, flipp)
         else:
             continue
-    print('Images successfully flipped along the horizontal axis')
+    print('Images successfully flipped along the vertical axis')
 
 def alterAnnotations(filePath, pathOut):
     for filename in os.listdir(filePath):
         textfile_path = filePath+filename
-        outfile_path = pathOut+'Yflip_'+filename
+        outfile_path = pathOut+'Xflip_'+filename
         if 'classes' in filename:
             shutil.copy(filePath+filename, pathOut+filename)
             continue
@@ -33,8 +33,8 @@ def alterAnnotations(filePath, pathOut):
                     yVal = float(line[2])
                     width = float(line[3])
                     height = float(line[4])
-                    new_xVal = round(1 - xVal, 6)
-                    newLine = str(classVal)+' '+str(new_xVal)+' '+str(yVal)+' '+str(width)+' '+str(height)+'\n'
+                    new_yVal = round(1 - yVal, 6)
+                    newLine = str(classVal)+' '+str(xVal)+' '+str(new_yVal)+' '+str(width)+' '+str(height)+'\n'
                     k.write(newLine)
         else:
             continue
