@@ -13,7 +13,7 @@ def flipImages(filePath, pathOut):
             cv2.imwrite(image_pathout, flipp)
         else:
             continue
-    print('Images successfully flipped along the vertical axis')
+    print('Images successfully flipped along the horizontal axis')
 
 def alterAnnotations(filePath, pathOut):
     for filename in os.listdir(filePath):
