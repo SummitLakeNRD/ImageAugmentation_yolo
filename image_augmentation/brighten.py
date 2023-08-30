@@ -10,7 +10,7 @@ def brightenImages(filePath,pathOut):
             image_path = filePath + filename
             image_pathOut = pathOut + 'brightened_' + filename
             image = cv2.imread(image_path)
-            brighten = np.ones(image.shape, dtype = 'uint8') * 60
+            brighten = np.ones(image.shape, dtype = 'uint8') * 80
             brighen_image = cv2.add(image, brighten)
             cv2.imwrite(image_pathOut, brighen_image)
             continue
