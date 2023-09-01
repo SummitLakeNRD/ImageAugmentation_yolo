@@ -3,7 +3,7 @@ import os
 import shutil
 import argparse
 
-ksize = (4,4) #good value for 416x416 yolo images
+ksize = (6,6) #good value for 416x416 yolo images
 
 def blurImages(filePath,pathOut):      
     for filename in os.listdir(filePath):
